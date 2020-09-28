@@ -1,4 +1,4 @@
-import { ValidateService } from './src/app/services/validate.service';
+import { ValidateService } from './services/validate.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
