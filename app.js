@@ -6,13 +6,17 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const config = require("./config/database");
 
-mongoose.connect(config.database, (err) => {
-  if (!err) console.log("MongoDB connection succeeded.");
-  else
-    console.log(
-      "Error in DB connection : " + JSON.stringify(err, undefined, 2)
-    );
-});
+mongoose.connect(
+  "mongodb://localhost:27017/meanauth",
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  (err) => {
+    if (!err) console.log("MongoDB connection succeeded.");
+    else
+      console.log(
+        "Error in DB connection : " + JSON.stringify(err, undefined, 2)
+      );
+  }
+);
 
 mongoose.connection.on("connected", () => {
   console.log("connected to db" + config.database);
@@ -39,6 +43,10 @@ app.use("/users", users);
 
 app.get("/", (req, res) => {
   res.send("invalid");
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 app.listen(port, () => {

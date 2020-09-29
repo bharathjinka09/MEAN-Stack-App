@@ -25,14 +25,38 @@
         [routerLinkActiveOptions]="{ exact: true }"
         class="nav-item"
       >
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a class="nav-link" routerLink="/dashboard">Dashboard</a>
       </li>
       <li
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
         class="nav-item"
       >
+        <a class="nav-link" routerLink="/profile">Profile</a>
+      </li>
+      <li
+        *ngIf="!token"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-item"
+      >
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+      <li
+        *ngIf="!token"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-item"
+      >
         <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+      <li
+        *ngIf="token"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-item"
+      >
+        <a (click)="onLogoutClick()" href="#" class="nav-link">Logout</a>
       </li>
     </ul>
   </div>
