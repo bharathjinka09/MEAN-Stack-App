@@ -778,7 +778,7 @@ class AuthService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('http://localhost:3000/users/register', user, {
+            .post('users/register', user, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -787,7 +787,7 @@ class AuthService {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]();
         headers.append('Content-Type', 'application/json');
         return this.http
-            .post('http://localhost:3000/users/authenticate', user, {
+            .post('users/authenticate', user, {
             headers: headers,
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])((res) => res));
@@ -797,12 +797,12 @@ class AuthService {
     //   let headers = new HttpHeaders()
     //     .append('Authorization', this.authToken)
     //     .append('Content-Type', 'application/json');
-    //   return this.http.get('http://localhost:3000/users/profile', {
+    //   return this.http.get('users/profile', {
     //     headers: headers,
     //   });
     // }
     getProfile() {
-        let url = 'http://localhost:3000/users/profile';
+        let url = 'users/profile';
         this.loadToken();
         const headers = { Authorization: this.authToken };
         return this.http.get(url, { headers });
