@@ -7,7 +7,8 @@ const mongoose = require("mongoose");
 const config = require("./config/database");
 
 mongoose.connect(
-  "mongodb://localhost:27017/meanauth",
+  // "mongodb://localhost:27017/meanauth",
+  "mongodb+srv://bharath:bharath@cluster0.sw6ju.mongodb.net/test?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err) => {
     if (!err) console.log("MongoDB connection succeeded.");
